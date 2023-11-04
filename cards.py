@@ -1,17 +1,29 @@
 import random
 import sys
 
+# TODO: define Deck class
+class Deck:
+    def __init__(self) -> None:
+        pass
+
+# TODO: define Pile class
+class Pile:
+    def __init__(self, test):
+        pass
+
 class Card:
-    def __init__(self, value, color, suit):
+    def __init__(self, value, color, suit, faceup):
         self.value = value
         self.color = color
         self.suit = suit
+        self.faceup = faceup
 
     # Plays the card from the current deck
-    def play(self, start_hand, end_hand):
+    def play(self, start_hand, end, faceup):
         try:
-            end_hand.append(self)
-            start_hand.remove(self)
+            end.append(self) # adds the card to the pile (end destination)
+            start_hand.remove(self) # removes the card from the hand of the player who played
+            faceup = True; # card has been played, so the card is now face up
         except:
             pass
 
