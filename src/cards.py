@@ -1,40 +1,14 @@
 import random
 import sys
 
-from card import Card
-
-# TODO: define Deck class
-class Deck:
-    def __init__(self) -> None:
-        pass
-
-# TODO: define Pile class
-class Pile:
-    def __init__(self, test):
-        pass
-
-    # draw a card from the pile
-    def draw(self):
-        pass
-
-# initializes sorted deck of cards
-def init_deck():
-
-    sorted_deck = [Card(value, 'black', 'spades', False) for value in range(1,14)] # initialize all spade cards
-
-    # append all other suit cards to the deck
-    sorted_deck.extend([Card(value, 'black', 'clubs', False) for value in range(1,14)]) 
-    sorted_deck.extend([Card(value, 'red', 'hearts', False) for value in range(1,14)])
-    sorted_deck.extend([Card(value, 'red', 'diamonds', False) for value in range(1,14)])
-    
-    return sorted_deck
+from construct import Card, Deck, Pile
 
 def shuffle(deck):
     random.shuffle(deck)
     return deck
 
 def is_sorted(deck):
-    sorted = init_deck()
+    sorted = Deck.init_deck();
     for x in range(len(deck)):
         if deck[x].value == sorted[x].value and deck[x].color == sorted[x].color and deck[x].suit == sorted[x].suit:
             continue
