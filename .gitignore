@@ -1,3 +1,5 @@
 # Distribution and environments
 venv/
 
+# compiled bytecode files
+src/__pycache__/
