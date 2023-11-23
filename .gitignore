@@ -3,3 +3,6 @@ venv/
 
 # compiled bytecode files
 src/__pycache__/
+
+# testing
+src/test.py
