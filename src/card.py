@@ -1,4 +1,8 @@
 class Card:
+
+    symbols = {"spades": "♠", "clubs": "♣", "hearts": "♥", "diamonds": "♦"} # list of symbols for the card
+
+    # init card with instance vars
     def __init__(self, value, suit, faceup):
         self.value = value
         self.suit = suit
@@ -14,8 +18,7 @@ class Card:
             pass
 
     def print_card(self):
-        symbols = {"spades": "♠", "clubs": "♣", "hearts": "♥", "diamonds": "♦"} # list of symbols for the card
-        print(f"{self.value}{symbols[self.suit]}") # e.g. (4♣)
+        print(f"{self.value}{Card.symbols[self.suit]}") # e.g. (4♣)
 
     # reveals the card
     def show(self):
