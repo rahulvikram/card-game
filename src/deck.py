@@ -13,7 +13,8 @@ from player import Player
 
 # TODO: finish class deck
 class Deck:
-    # initializes a deck of cards
+
+    # initializes a deck of cards; these vars are instance variables, belonging to each instance of a deck
     def __init__(self):
         self.suits = ['spades', 'clubs', 'hearts', 'diamonds']
         self.values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
@@ -29,7 +30,7 @@ class Deck:
         for card in self.cards:
             card.print_card()
 
-
+    # shuffle deck of cards
     def shuffle(self):
         random.shuffle(self.cards)                                                                                                                                                                                                                                                                             
 
@@ -42,16 +43,14 @@ class Deck:
             print("Error: Not enough cards in deck.\n")
             sys.exit()
         else: # if enough cards are in deck
-            self.shuffle()
+            self.shuffle() # shuffle the deck
 
             # create new players, add them to player list, and give them cards from shuffled deck
             for i in range(player_count):
-                new_player = Player()
-                players.append(new_player)
-
-
-
-
+                new_player = Player() # create new player
+                new_player.hand.extend(self.cards[0:card_count]) # add the specified amt of cards to the player's hand
+                self.cards[0:card_count] = [] # remove these cards from the original deck, completing the deal
+                players.append(new_player) # add new player to the players deck                  
 
         return players
         
@@ -64,7 +63,3 @@ class Deck:
 
     def is_sorted(self):
         pass
-
-
-deck = Deck()
-deck.deal(4, 10)
