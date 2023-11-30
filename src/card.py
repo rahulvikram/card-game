@@ -1,6 +1,27 @@
 class Card:
-
-    symbols = {"spades": "♠", "clubs": "♣", "hearts": "♥", "diamonds": "♦"} # list of symbols for the card
+    
+    symbols = {
+        "spades":
+        {
+            "icon":"♠",
+            "sort_index": 1
+        },
+        "clubs":
+        {
+            "icon":"♣",
+            "sort_index": 2
+        },
+        "hearts":
+        {
+            "icon":"♥",
+            "sort_index": 3
+        },
+        "diamonds":
+        {
+            "icon":"♦",
+            "sort_index": 4
+        }
+    } # list of symbols for the card
 
     # init card with instance vars
     def __init__(self, value, suit, faceup):
@@ -18,7 +39,7 @@ class Card:
             pass
 
     def print_card(self):
-        print(f"{self.value}{Card.symbols[self.suit]}") # e.g. (4♣)
+        print(f"{self.value}{Card.symbols[self.suit]['icon']}") # e.g. (4♣)
 
     # reveals the card
     def show(self):

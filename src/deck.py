@@ -5,7 +5,6 @@ import sys
 # import helper functions
 sys.path.append('/Users/rahul/OneDrive - Oregon State University/Documents/Coding/projects/card-game/helpers/')
 from sort_help import value_func, suit_func
-from values import val_dict # decksort alg: converts AJQK into respective num values
 
 # import classes
 from card import Card 
@@ -41,25 +40,33 @@ class Deck:
         # makes sure the cards to deal isn't more than the total cards in the deck
         if player_count*card_count > len(self.cards):
             print("Error: Not enough cards in deck.\n")
-            sys.exit()
+            return;
         else: # if enough cards are in deck
             self.shuffle() # shuffle the deck
 
             # create new players, add them to player list, and give them cards from shuffled deck
             for i in range(player_count):
                 new_player = Player() # create new player
-                new_player.hand.extend(self.cards[0:card_count]) # add the specified amt of cards to the player's hand
-                self.cards[0:card_count] = [] # remove these cards from the original deck, completing the deal
+                self.draw(card_count, new_player) # add the specified amt of cards to the player's hand; remove these cards from the original deck, completing the deal
+
                 players.append(new_player) # add new player to the players deck                  
 
         return players
         
+    # function to draw a card
+    def draw(self, card_count, player):
+        # if you are trying to draw more cards than there are in the deck, you can't
+        if card_count > len(self.cards):
+            print("Error: Not enough cards in deck.\n")
 
-    def draw(self):
-        pass
+        player.hand.extend(self.cards[0:card_count]) # adds cards to player's hand
+        self.cards[0:card_count] = [] # removes cards from deck
 
     def sort_deck(self):
-        pass
+        self.cards.sort(key=value_func) # first sorts deck by value
+        self.cards.sort(key=suit_func) # sorts deck by suit
 
-    def is_sorted(self):
-        pass
+deck = Deck()
+deck.shuffle()
+deck.sort_deck()
+deck.print_deck()
