@@ -27,7 +27,7 @@ class Deck:
     # prints every card in the deck
     def print_deck(self):
         for card in self.cards:
-            card.print_card()
+            print(card)
 
     # shuffle deck of cards
     def shuffle(self):
@@ -35,7 +35,7 @@ class Deck:
 
     # deals cards to players
     def deal(self, player_count, card_count):
-        players = []
+        players = [] # array of players, each having their own hand
 
         # makes sure the cards to deal isn't more than the total cards in the deck
         if player_count*card_count > len(self.cards):
@@ -62,11 +62,9 @@ class Deck:
         player.hand.extend(self.cards[0:card_count]) # adds cards to player's hand
         self.cards[0:card_count] = [] # removes cards from deck
 
+    # deck sort algorithm
     def sort_deck(self):
         self.cards.sort(key=value_func) # first sorts deck by value
-        self.cards.sort(key=suit_func) # sorts deck by suit
+        self.cards.sort(key=suit_func) # then sorts deck by suit
 
-deck = Deck()
-deck.shuffle()
-deck.sort_deck()
-deck.print_deck()
+    

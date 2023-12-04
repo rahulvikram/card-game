@@ -1,5 +1,5 @@
 class Card:
-    
+
     symbols = {
         "spades":
         {
@@ -37,12 +37,13 @@ class Card:
             faceup = True; # card has been played, so the card is now face up
         except:
             pass
-
-    def print_card(self):
-        print(f"{self.value}{Card.symbols[self.suit]['icon']}") # e.g. (4♣)
+    
+    # dunder method overriding print() for print_deck function
+    def __repr__(self):
+        return f"{self.value}{Card.symbols[self.suit]['icon']}" # e.g. (4♣)
 
     # reveals the card
-    def show(self):
+    def reveal(self):
         # card can only be shown if it's not already being shown
         if not self.faceup:
             self.faceup = True

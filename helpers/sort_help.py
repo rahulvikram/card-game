@@ -1,10 +1,16 @@
-from values import val_dict
 import sys
 sys.path.append('/Users/rahul/OneDrive - Oregon State University/Documents/Coding/projects/card-game/src/')
 from card import Card
 
-# helper functions in sort_deck() function: lets deck.sort() know what attr. to sort cards by 
+# used for decksort algorithm
+val_dict = {
+    "A": 1,
+    "J": 11,
+    "Q": 12,
+    "K": 13
+}
 
+# helper functions in sort_deck() function: lets deck.sort() know what attr. to sort cards by 
 # value function: helps sort the deck by card value
 def value_func(card):
     if isinstance(card.value, str): # if the value is any of AJQK 
