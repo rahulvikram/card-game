@@ -66,5 +66,3 @@ class Deck:
     def sort_deck(self):
         self.cards.sort(key=value_func) # first sorts deck by value
         self.cards.sort(key=suit_func) # then sorts deck by suit
-
-    
