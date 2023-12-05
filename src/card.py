@@ -3,21 +3,25 @@ class Card:
     symbols = {
         "spades":
         {
+            "img_tag":"S",
             "icon":"♠",
             "sort_index": 1
         },
         "clubs":
         {
+            "img_tag":"C",
             "icon":"♣",
             "sort_index": 2
         },
         "hearts":
         {
+            "img_tag":"H",
             "icon":"♥",
             "sort_index": 3
         },
         "diamonds":
         {
+            "img_tag":"D",
             "icon":"♦",
             "sort_index": 4
         }
