@@ -1,0 +1,10 @@
+# dist and envs
+venv/
+
+# compiled bytecode files
+src/__pycache__/
+helpers/__pycache__/
+
+# testing
+src/test.py
+stack.py
