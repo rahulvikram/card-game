@@ -57,9 +57,13 @@ class Deck:
     def draw(self, card_count, player):
         # if you are trying to draw more cards than there are in the deck, you can't
         if card_count > len(self.cards):
-            print("Error: Not enough cards in deck.\n")
+            sys.exit("Error: Not enough cards in deck.\n")
+        
 
         player.hand.extend(self.cards[0:card_count]) # adds cards to player's hand
+        for card in player.hand:
+            card.reveal() # reveals card in hand
+    
         self.cards[0:card_count] = [] # removes cards from deck
 
     # deck sort algorithm

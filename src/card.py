@@ -1,3 +1,5 @@
+from autoclass import autoargs
+
 class Card:
 
     symbols = {
@@ -26,12 +28,12 @@ class Card:
             "sort_index": 4
         }
     } # list of symbols for the card
+    backfile = fr"img\red_back.png"
 
-    # init card with instance vars
+    # init card with instance vars; autoargs decorator to minimize 'self.X' redundancy
+    @autoargs
     def __init__(self, value, suit, faceup):
-        self.value = value
-        self.suit = suit
-        self.faceup = faceup
+        self.filename = fr"img\{self.value}{Card.symbols[self.suit]['img_tag']}.png"
 
     # Plays the card from the current deck
     def play(self, start_hand, end, faceup):
